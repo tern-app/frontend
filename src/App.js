@@ -1,6 +1,7 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
+import Movie from './Movie.js';
 
 function App() {
 	return (
@@ -10,7 +11,9 @@ function App() {
 			</header>
 			<div>
 				<p>This is my Movie Body</p>
-				<div className="movie-grid"></div>
+				<div className='movie-grid'>
+					<Movie />
+				</div>
 			</div>
 		</div>
 	);
