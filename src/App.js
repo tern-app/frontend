@@ -1,23 +1,24 @@
-import React from 'react';
-// import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
-// import Movie from './Movie.js';
-import MovieList from './MovieList.js';
+import { Route, Link, Redirect } from 'react-router-dom';
+import Create from './Components/Create/Create';
+import Edit from './Components/Edit/Edit';
+import SearchBar from './Components/Searchbar/Searchbar';
+import TodoList from './Components/TodoList/TodoList';
 
-function App() {
-	return (
-		<div className='App'>
-			<header className='App-header'>
-				<h1>Movie App</h1>
-			</header>
+class App extends Component {
+	render() {
+		return (
 			<div>
-				<p>This is my Movie Body</p>
-				<div className='movie-grid'>
-					<MovieList />
-				</div>
+				<main>
+					<SearchBar />
+					<Route path='/' component={TodoList} />
+					<Route path='/create' component={Create} />
+					<Route path='/edit' component={Edit} />
+				</main>
 			</div>
-		</div>
-	);
+		);
+	}
 }
 
 export default App;
