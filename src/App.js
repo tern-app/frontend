@@ -7,9 +7,22 @@ import SearchBar from './Components/Searchbar/Searchbar';
 import TodoList from './Components/TodoList/TodoList';
 
 class App extends Component {
+	constructor() {
+		super();
+		this.state = {
+			todos: [],
+		};
+	}
+
 	render() {
 		return (
 			<div>
+				<nav>
+					<ul>
+						<li>To-do</li>
+						<li>Completed</li>
+					</ul>
+				</nav>
 				<main>
 					<SearchBar />
 					<Route path='/' component={TodoList} />
