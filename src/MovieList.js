@@ -12,7 +12,7 @@ class MovieList extends Component {
 	}
 
 	componentDidMount() {
-		const url = '/shows.json';
+		const url = 'http://localhost:8080/shows/';
 		axios(url)
 			.then((res) => {
 				this.setState({ movieArray: res.data });

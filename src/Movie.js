@@ -7,7 +7,7 @@ class Movie extends Component {
 		return (
 			<div className='movie-card'>
 				<div>
-					<img src={this.props.movie.image} alt='alt text' />
+					<img src={this.props.url} alt='alt text' />
 				</div>
 				<div>
 					<p className='movie-title'>{this.props.movie.title}</p>
