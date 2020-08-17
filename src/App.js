@@ -25,7 +25,9 @@ class App extends Component {
 				</nav>
 				<main>
 					<SearchBar />
+
 					<Route path='/' component={TodoList} />
+					<button id='openModal'>+</button>
 					<Route path='/create' component={Create} />
 					<Route path='/edit' component={Edit} />
 				</main>
