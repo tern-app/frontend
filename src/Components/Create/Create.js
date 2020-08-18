@@ -31,7 +31,23 @@ class Create extends Component {
 			dueDate: this.state.dueDate,
 			priority: this.state.priority,
 		};
-		this.setState({ newTodo: newTodo });
+		const url = `http://localhost:8080/api/bookmarks/`;
+		fetch(url, {
+			method: 'POST',
+			headers: {
+				'content-type': 'application/json',
+				accept: 'application/json',
+			},
+			body: JSON.stringify({ title: this.state.title, url: this.state.body }),
+		})
+			.then((response) => response.json())
+			.then((response) => {
+				console.log(response);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+		// this.setState({ newTodo: newTodo });
 	};
 
 	handleTitleChange = (event) => {
@@ -39,15 +55,15 @@ class Create extends Component {
 	};
 
 	handleBodyChange = (event) => {
-		this.setState({ title: event.target.value });
+		this.setState({ body: event.target.value });
 	};
 
 	handleDueDateChange = (event) => {
-		this.setState({ title: event.target.value });
+		this.setState({ dueDate: event.target.value });
 	};
 
 	handlePriorityChange = (event) => {
-		this.setState({ title: event.target.value });
+		this.setState({ priority: event.target.value });
 	};
 
 	render() {
@@ -70,7 +86,6 @@ class Create extends Component {
 									type='text'
 									name='title'
 									id='title'
-									// title={this.state.title}
 									onChange={this.handleTitleChange}></input>
 								<label>Details:</label>
 								<input
