@@ -14,7 +14,12 @@ class App extends Component {
 		};
 	}
 
+	setTodos = (todos) => {
+		this.setState({ todos: todos });
+	};
+
 	render() {
+		console.log(this.state.todos);
 		return (
 			<div>
 				<nav>
@@ -25,8 +30,9 @@ class App extends Component {
 				</nav>
 				<main>
 					<SearchBar />
+					<TodoList todos={this.state.todos} setTodos={this.setTodos} />
 
-					<Route path='/' component={TodoList} />
+					{/* <Route component={TodoList} /> */}
 					<Create />
 					{/* <Route path='/create' component={Create} /> */}
 					<Route path='/edit' component={Edit} />

@@ -47,7 +47,7 @@ class Create extends Component {
 			completed: false,
 		};
 		console.log(newTodo);
-		const url = `http://localhost:8080/api/bookmarks/`;
+		const url = `http://localhost:8000/api/bookmarks/`;
 		fetch(url, {
 			method: 'POST',
 			headers: {
