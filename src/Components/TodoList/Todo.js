@@ -4,9 +4,6 @@ import { Route, Link, Redirect } from 'react-router-dom';
 class Todo extends Component {
 	completeTodo = (event) => {
 		console.log(event.target.title);
-		// const completed = {
-		// 	completed: true,
-		// };
 		const url = `http://localhost:8000/api/bookmarks/${event.target.title}`;
 		fetch(url, {
 			method: 'PUT',
@@ -41,6 +38,9 @@ class Todo extends Component {
 						title={this.props.title}
 						onClick={this.completeTodo}>
 						Done
+					</button>
+					<button id={this.props.id} title={this.props.title}>
+						Edit
 					</button>
 				</div>
 			</div>
