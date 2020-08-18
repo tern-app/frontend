@@ -3,8 +3,8 @@ import { Route, Link, Redirect } from 'react-router-dom';
 
 class Todo extends Component {
 	completeTodo = (event) => {
-		console.log(event.target.title);
-		const url = `http://localhost:8000/api/bookmarks/${event.target.title}`;
+		console.log(event.target.id);
+		const url = `https://stark-depths-63601.herokuapp.com/tasks/${event.target.id}`;
 		fetch(url, {
 			method: 'PUT',
 			headers: {

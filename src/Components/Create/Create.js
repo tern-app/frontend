@@ -55,7 +55,7 @@ class Create extends Component {
 				'content-type': 'application/json',
 				accept: 'application/json',
 			},
-			body: JSON.stringify({ title: this.state.title, body: this.state.body }),
+			body: JSON.stringify(newTodo),
 		})
 			.then((response) => response.json())
 			.then((response) => {
