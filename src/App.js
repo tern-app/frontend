@@ -30,11 +30,8 @@ class App extends Component {
 				</nav>
 				<main>
 					<SearchBar />
-					<TodoList todos={this.state.todos} setTodos={this.setTodos} />
-
-					{/* <Route component={TodoList} /> */}
 					<Create />
-					{/* <Route path='/create' component={Create} /> */}
+					<TodoList todos={this.state.todos} setTodos={this.setTodos} />
 					<Route path='/edit' component={Edit} />
 				</main>
 			</div>
