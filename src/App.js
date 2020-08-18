@@ -30,7 +30,7 @@ class App extends Component {
 				</nav>
 				<main>
 					<SearchBar />
-					<Create />
+					<Create setTodos={this.setTodos} />
 					<TodoList todos={this.state.todos} setTodos={this.setTodos} />
 					<Route path='/edit' component={Edit} />
 				</main>

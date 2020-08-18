@@ -4,7 +4,7 @@ import Todo from './Todo.js';
 
 class TodoList extends Component {
 	componentDidMount() {
-		const url = `http://localhost:8000/api/bookmarks/`;
+		const url = `https://stark-depths-63601.herokuapp.com/tasks/`;
 		fetch(url)
 			.then((response) => response.json())
 			.then((response) => {
@@ -20,7 +20,7 @@ class TodoList extends Component {
 			<div>
 				{this.props.todos.map((todo) => {
 					// if (todo.completed !== true && ) {
-					return <Todo title={todo.title} url={todo.url} id={todo._id} />;
+					return <Todo title={todo.title} body={todo.url} id={todo._id} />;
 					// }
 				})}
 			</div>

@@ -37,24 +37,25 @@ class Create extends Component {
 	};
 
 	handleSubmit = (event) => {
-		event.preventDefault();
+		// event.preventDefault();
 		const newTodo = {
 			title: this.state.title,
 			body: this.state.body,
-			dueDate: this.state.dueDate,
+			createdDate: this.getCurrentTime(),
 			priority: this.state.priority,
-			time: this.getCurrentTime(),
 			completed: false,
+			completedDate: '',
+			dueDate: this.state.dueDate,
 		};
 		console.log(newTodo);
-		const url = `http://localhost:8000/api/bookmarks/`;
+		const url = `https://stark-depths-63601.herokuapp.com/tasks/`;
 		fetch(url, {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',
 				accept: 'application/json',
 			},
-			body: JSON.stringify({ title: this.state.title, url: this.state.body }),
+			body: JSON.stringify({ title: this.state.title, body: this.state.body }),
 		})
 			.then((response) => response.json())
 			.then((response) => {
@@ -63,6 +64,7 @@ class Create extends Component {
 			.catch((err) => {
 				console.log(err);
 			});
+
 		this.setState({ open: false });
 	};
 
