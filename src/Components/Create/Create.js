@@ -23,14 +23,30 @@ class Create extends Component {
 		this.setState({ open: false });
 	};
 
+	getCurrentTime = () => {
+		let today = new Date();
+		let date =
+			today.getFullYear() +
+			'-' +
+			(today.getMonth() + 1) +
+			'-' +
+			today.getDate();
+		let time =
+			today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+		return date + ' ' + time;
+	};
+
 	handleSubmit = (event) => {
-		console.log(event.target.title.value);
+		event.preventDefault();
 		const newTodo = {
 			title: this.state.title,
 			body: this.state.body,
 			dueDate: this.state.dueDate,
 			priority: this.state.priority,
+			time: this.getCurrentTime(),
+			completed: false,
 		};
+		console.log(newTodo);
 		const url = `http://localhost:8080/api/bookmarks/`;
 		fetch(url, {
 			method: 'POST',
@@ -47,7 +63,7 @@ class Create extends Component {
 			.catch((err) => {
 				console.log(err);
 			});
-		// this.setState({ newTodo: newTodo });
+		this.setState({ open: false });
 	};
 
 	handleTitleChange = (event) => {
@@ -67,7 +83,6 @@ class Create extends Component {
 	};
 
 	render() {
-		console.log(this.state.newTodo);
 		return (
 			<div>
 				<button id='openModal' onClick={this.openModal}>
@@ -83,6 +98,7 @@ class Create extends Component {
 							<form onSubmit={this.handleSubmit}>
 								<label>Title:</label>
 								<input
+									required
 									type='text'
 									name='title'
 									id='title'
