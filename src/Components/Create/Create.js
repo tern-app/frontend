@@ -10,8 +10,11 @@ class Create extends Component {
 			newTodo: {},
 			title: '',
 			body: '',
-			dueDate: '',
+			createdDate: '',
 			priority: '',
+			completed: false,
+			completedDate: '',
+			dueDate: '',
 		};
 	}
 
@@ -101,13 +104,15 @@ class Create extends Component {
 									onChange={this.handleInputChange}></input>
 								<label>Due Date:</label>
 								<input
-									type='text'
+									type='datetime-local'
 									name='dueDate'
 									id='dueDate'
 									onChange={this.handleInputChange}></input>
 								<label>Priority:</label>
 								<input
-									type='text'
+									type='number'
+									min='1'
+									max='5'
 									name='priority'
 									id='priority'
 									onChange={this.handleInputChange}></input>

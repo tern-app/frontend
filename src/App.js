@@ -11,11 +11,16 @@ class App extends Component {
 		super();
 		this.state = {
 			todos: [],
+			display: 'completed',
 		};
 	}
 
 	setTodos = (todos) => {
 		this.setState({ todos: todos });
+	};
+
+	setDisplay = (display) => {
+		this.setState({ display: display });
 	};
 
 	render() {
@@ -31,7 +36,12 @@ class App extends Component {
 				<main>
 					<SearchBar />
 					<Create setTodos={this.setTodos} />
-					<TodoList todos={this.state.todos} setTodos={this.setTodos} />
+					<TodoList
+						todos={this.state.todos}
+						setTodos={this.setTodos}
+						setDisplay={this.setDisplay}
+						display={this.state.display}
+					/>
 					<Route path='/edit' component={Edit} />
 				</main>
 			</div>
