@@ -13,7 +13,11 @@ class App extends Component {
 			open: false,
 			todos: [],
 			display: 'not completed',
+			editTodo:{},
 		};
+	}
+	setEditTodo=(todo)=>{
+           this.setState({editTodo:todo})
 	}
 
 	setOpen = (value) => {
@@ -50,11 +54,13 @@ class App extends Component {
 					<SearchBar />
 					<Create setTodos={this.setTodos} />
 					<Edit
+					   
 						setTodos={this.setTodos}
 						setOpen={this.setOpen}
 						open={this.state.open}
 					/>
 					<TodoList
+					     setEditTodo={this.setEditTodo}
 						todos={this.state.todos}
 						setTodos={this.setTodos}
 						setDisplay={this.setDisplay}

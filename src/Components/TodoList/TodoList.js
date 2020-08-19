@@ -28,7 +28,7 @@ class TodoList extends Component {
 									setTodos={this.props.setTodos}
 									key={todo._id}
 									title={todo.title}
-									body={todo.url}
+									body={todo.body}
 									id={todo._id}
 									completed={todo.completed}
 								/>
@@ -38,14 +38,17 @@ class TodoList extends Component {
 						if (todo.completed !== true) {
 							return (
 								<Todo
+								setEditTodo={this.props.setEditTodo}
 									setOpen={this.props.setOpen}
 									open={this.props.open}
 									setTodos={this.props.setTodos}
 									key={todo._id}
 									title={todo.title}
-									body={todo.url}
+									body={todo.body}
 									id={todo._id}
 									completed={todo.completed}
+									dueDate={todo.dueDate}
+									priority={todo.priority}
 								/>
 							);
 						}

@@ -85,6 +85,7 @@ class Edit extends Component {
 	};
 
 	render() {
+
 		return (
 			<div>
 				{/* <button id='openModal' onClick={this.openModal}>
@@ -104,6 +105,7 @@ class Edit extends Component {
 									type='text'
 									name='title'
 									id='title'
+									value={this.state.title}
 									onChange={this.handleInputChange}></input>
 								<label>Details:</label>
 								<input
