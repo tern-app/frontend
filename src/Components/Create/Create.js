@@ -68,20 +68,8 @@ class Create extends Component {
 		this.setState({ open: false });
 	};
 
-	handleTitleChange = (event) => {
-		this.setState({ title: event.target.value });
-	};
-
-	handleBodyChange = (event) => {
-		this.setState({ body: event.target.value });
-	};
-
-	handleDueDateChange = (event) => {
-		this.setState({ dueDate: event.target.value });
-	};
-
-	handlePriorityChange = (event) => {
-		this.setState({ priority: event.target.value });
+	handleInputChange = (event) => {
+		this.setState({ [event.target.id]: event.target.value });
 	};
 
 	render() {
@@ -104,25 +92,25 @@ class Create extends Component {
 									type='text'
 									name='title'
 									id='title'
-									onChange={this.handleTitleChange}></input>
+									onChange={this.handleInputChange}></input>
 								<label>Details:</label>
 								<input
 									type='text'
 									name='body'
 									id='body'
-									onChange={this.handleBodyChange}></input>
+									onChange={this.handleInputChange}></input>
 								<label>Due Date:</label>
 								<input
 									type='text'
 									name='dueDate'
 									id='dueDate'
-									onChange={this.handleDueDateChange}></input>
+									onChange={this.handleInputChange}></input>
 								<label>Priority:</label>
 								<input
 									type='text'
 									name='priority'
 									id='priority'
-									onChange={this.handlePriorityChange}></input>
+									onChange={this.handleInputChange}></input>
 								<input type='submit' />
 							</form>
 						</div>
