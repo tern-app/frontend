@@ -17,27 +17,6 @@ class Edit extends Component {
 		};
 	}
 
-	// componentDidMount() {
-	// 	console.log(this.props.editTodo);
-	// 	const url = `https://stark-depths-63601.herokuapp.com/tasks/${this.props.editTodo}`;
-	// 	fetch(url)
-	// 		.then((response) => response.json())
-	// 		.then((response) => {
-	// 			console.log(response);
-	// 			this.setState({
-	// 				title: response.title,
-	// 			});
-	// 		})
-	// 		.catch((err) => {
-	// 			console.log(err);
-	// 		});
-	// 	// this.setState({ title: this.props.editTodo.title });
-	// }
-
-	// openModal = (event) => {
-	// 	this.setState({ open: true });
-	// };
-
 	closeModal = (event) => {
 		this.props.setOpen(false);
 	};
@@ -53,6 +32,40 @@ class Edit extends Component {
 		let time =
 			today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
 		return date + ' ' + time;
+	};
+
+	deleteTodo = (event) => {
+		event.preventDefault();
+		const newTodo = this.props.editTodo;
+
+		console.log(newTodo);
+		const url = `https://stark-depths-63601.herokuapp.com/tasks/${newTodo.id}`;
+		fetch(url, {
+			method: 'DELETE',
+			// headers: {
+			// 	'content-type': 'application/json',
+			// 	accept: 'application/json',
+			// },
+			// body: JSON.stringify(newTodo),
+		})
+			.then((response) => response.json())
+			.then((response) => {
+				console.log(response);
+				fetch(`https://stark-depths-63601.herokuapp.com/tasks/`)
+					.then((response) => response.json())
+					.then((response) => {
+						this.props.setTodos(response);
+					})
+					.catch((err) => {
+						console.log(err);
+					});
+				// this.props.setTodos(response);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+		// const url = `https://stark-depths-63601.herokuapp.com/tasks/`;
+		this.props.setOpen({ open: false });
 	};
 
 	handleSubmit = (event) => {
@@ -148,6 +161,12 @@ class Edit extends Component {
 									onChange={this.handleInputChange}
 								/>
 								<input type='submit' value='submit' />
+								<button
+									// type='submit'
+									// value='delete'
+									onClick={this.deleteTodo}>
+									Delete
+								</button>
 							</form>
 						</div>
 					</div>
