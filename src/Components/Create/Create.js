@@ -63,10 +63,20 @@ class Create extends Component {
 			.then((response) => response.json())
 			.then((response) => {
 				console.log(response);
+				fetch(url)
+					.then((response) => response.json())
+					.then((response) => {
+						this.props.setTodos(response);
+					})
+					.catch((err) => {
+						console.log(err);
+					});
+				// this.props.setTodos(response);
 			})
 			.catch((err) => {
 				console.log(err);
 			});
+		// const url = `https://stark-depths-63601.herokuapp.com/tasks/`;
 
 		this.setState({ open: false });
 	};

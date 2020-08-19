@@ -23,6 +23,7 @@ class TodoList extends Component {
 						if (todo.completed !== false) {
 							return (
 								<Todo
+									key={todo._id}
 									title={todo.title}
 									body={todo.url}
 									id={todo._id}
@@ -34,6 +35,7 @@ class TodoList extends Component {
 						if (todo.completed !== true) {
 							return (
 								<Todo
+									key={todo._id}
 									title={todo.title}
 									body={todo.url}
 									id={todo._id}
