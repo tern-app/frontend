@@ -38,7 +38,7 @@ class TodoList extends Component {
 						if (todo.completed !== true) {
 							return (
 								<Todo
-								setEditTodo={this.props.setEditTodo}
+									setEditTodo={this.props.setEditTodo}
 									setOpen={this.props.setOpen}
 									open={this.props.open}
 									setTodos={this.props.setTodos}

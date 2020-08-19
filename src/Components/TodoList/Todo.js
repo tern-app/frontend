@@ -31,16 +31,16 @@ class Todo extends Component {
 			});
 	};
 
-	openModal = (event) => {
+	openModal = () => {
 		this.props.setOpen(true);
-		console.log(event.target.id);
-		const todo={
-			title:event.target.title,
-			body:event.target.body,
-			dueDate:event.target.dueDate,
-			priority:event.target.priority,
-		}
-		console.log(todo);
+		const todo = {
+			title: this.props.title,
+			body: this.props.body,
+			dueDate: this.props.dueDate,
+			priority: this.props.priority,
+		};
+		this.props.setEditTodo(todo);
+		// console.log(todo);
 	};
 
 	render() {
@@ -61,9 +61,9 @@ class Todo extends Component {
 					<button
 						id={this.props.id}
 						title={this.props.title}
-						body={this.props.body}
-						dueDate={this.props.dueDate}
-						priority={this.props.priority}
+						// body={this.props.body}
+						// dueDate={this.props.dueDate}
+						// priority={this.props.priority}
 						onClick={this.openModal}>
 						Edit
 					</button>

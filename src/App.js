@@ -7,18 +7,19 @@ import SearchBar from './Components/Searchbar/Searchbar';
 import TodoList from './Components/TodoList/TodoList';
 
 class App extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			open: false,
 			todos: [],
 			display: 'not completed',
-			editTodo:{},
+			editTodo: {},
 		};
 	}
-	setEditTodo=(todo)=>{
-           this.setState({editTodo:todo})
-	}
+
+	setEditTodo = (todo) => {
+		this.setState({ editTodo: todo });
+	};
 
 	setOpen = (value) => {
 		this.setState({ open: value });
@@ -41,7 +42,7 @@ class App extends Component {
 	};
 
 	render() {
-		console.log(this.state.todos);
+		console.log(this.state.editTodo);
 		return (
 			<div>
 				<nav>
@@ -53,14 +54,17 @@ class App extends Component {
 				<main>
 					<SearchBar />
 					<Create setTodos={this.setTodos} />
+
 					<Edit
-					   
+						editTodo={this.state.editTodo}
 						setTodos={this.setTodos}
 						setOpen={this.setOpen}
 						open={this.state.open}
+						setEditTodo={this.setEditTodo}
 					/>
+
 					<TodoList
-					     setEditTodo={this.setEditTodo}
+						setEditTodo={this.setEditTodo}
 						todos={this.state.todos}
 						setTodos={this.setTodos}
 						setDisplay={this.setDisplay}
