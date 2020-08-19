@@ -19,15 +19,28 @@ class TodoList extends Component {
 		return (
 			<div>
 				{this.props.todos.map((todo) => {
-					if (todo.completed !== true) {
-						return (
-							<Todo
-								title={todo.title}
-								body={todo.url}
-								id={todo._id}
-								completed={todo.completed}
-							/>
-						);
+					if (this.props.display === 'completed') {
+						if (todo.completed !== false) {
+							return (
+								<Todo
+									title={todo.title}
+									body={todo.url}
+									id={todo._id}
+									completed={todo.completed}
+								/>
+							);
+						}
+					} else {
+						if (todo.completed !== true) {
+							return (
+								<Todo
+									title={todo.title}
+									body={todo.url}
+									id={todo._id}
+									completed={todo.completed}
+								/>
+							);
+						}
 					}
 				})}
 			</div>

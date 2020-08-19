@@ -11,7 +11,7 @@ class App extends Component {
 		super();
 		this.state = {
 			todos: [],
-			display: 'completed',
+			display: 'not completed',
 		};
 	}
 
@@ -23,14 +23,22 @@ class App extends Component {
 		this.setState({ display: display });
 	};
 
+	changeDisplayValue = () => {
+		this.setState({ display: 'completed' });
+	};
+
+	changeTaskValue = () => {
+		this.setState({ display: 'not completed' });
+	};
+
 	render() {
 		console.log(this.state.todos);
 		return (
 			<div>
 				<nav>
 					<ul>
-						<li>To-do</li>
-						<li>Completed</li>
+						<li onClick={this.changeTaskValue}>To-do</li>
+						<li onClick={this.changeDisplayValue}>Completed</li>
 					</ul>
 				</nav>
 				<main>
