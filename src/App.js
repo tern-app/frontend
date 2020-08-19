@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, Link, Redirect } from 'react-router-dom';
 import Create from './Components/Create/Create';
 import Edit from './Components/Edit/Edit';
 import SearchBar from './Components/Searchbar/Searchbar';
