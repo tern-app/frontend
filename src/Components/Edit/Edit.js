@@ -5,7 +5,7 @@ class Edit extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			// open: false,
+			open: false,
 			newTodo: {},
 			title: '',
 			body: '',
@@ -56,20 +56,13 @@ class Edit extends Component {
 	};
 
 	handleSubmit = (event) => {
-		// event.preventDefault();
-		const newTodo = {
-			title: this.state.title,
-			body: this.state.body,
-			createdDate: this.getCurrentTime(),
-			priority: this.state.priority,
-			completed: false,
-			completedDate: '',
-			dueDate: this.state.dueDate,
-		};
+		event.preventDefault();
+		const newTodo = this.props.editTodo;
+
 		console.log(newTodo);
-		const url = `https://stark-depths-63601.herokuapp.com/tasks/`;
+		const url = `https://stark-depths-63601.herokuapp.com/tasks/${newTodo.id}`;
 		fetch(url, {
-			method: 'POST',
+			method: 'PUT',
 			headers: {
 				'content-type': 'application/json',
 				accept: 'application/json',
@@ -79,7 +72,7 @@ class Edit extends Component {
 			.then((response) => response.json())
 			.then((response) => {
 				console.log(response);
-				fetch(url)
+				fetch(`https://stark-depths-63601.herokuapp.com/tasks/`)
 					.then((response) => response.json())
 					.then((response) => {
 						this.props.setTodos(response);
@@ -93,7 +86,7 @@ class Edit extends Component {
 				console.log(err);
 			});
 		// const url = `https://stark-depths-63601.herokuapp.com/tasks/`;
-		this.setState({ open: false });
+		this.props.setOpen({ open: false });
 	};
 
 	handleInputChange = (event) => {
@@ -102,6 +95,7 @@ class Edit extends Component {
 			body: this.props.editTodo.body,
 			dueDate: this.props.editTodo.dueDate,
 			priority: this.props.editTodo.priority,
+			id: this.props.editTodo.id,
 			...{ [event.target.id]: event.target.value },
 		};
 		this.props.setEditTodo(todo);
@@ -153,7 +147,7 @@ class Edit extends Component {
 									id='priority'
 									onChange={this.handleInputChange}
 								/>
-								<input type='submit' value='save' />
+								<input type='submit' value='submit' />
 							</form>
 						</div>
 					</div>

@@ -38,6 +38,7 @@ class Todo extends Component {
 			body: this.props.body,
 			dueDate: this.props.dueDate,
 			priority: this.props.priority,
+			id: this.props.id,
 		};
 		this.props.setEditTodo(todo);
 		// console.log(todo);
