@@ -23,6 +23,9 @@ class TodoList extends Component {
 						if (todo.completed !== false) {
 							return (
 								<Todo
+									setOpen={this.props.setOpen}
+									open={this.props.open}
+									setTodos={this.props.setTodos}
 									key={todo._id}
 									title={todo.title}
 									body={todo.url}
@@ -35,6 +38,9 @@ class TodoList extends Component {
 						if (todo.completed !== true) {
 							return (
 								<Todo
+									setOpen={this.props.setOpen}
+									open={this.props.open}
+									setTodos={this.props.setTodos}
 									key={todo._id}
 									title={todo.title}
 									body={todo.url}

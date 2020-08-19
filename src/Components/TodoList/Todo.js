@@ -17,11 +17,22 @@ class Todo extends Component {
 		})
 			.then((response) => response.json())
 			.then((response) => {
-				console.log(response);
+				fetch(`https://stark-depths-63601.herokuapp.com/tasks/`)
+					.then((response) => response.json())
+					.then((response) => {
+						this.props.setTodos(response);
+					})
+					.catch((err) => {
+						console.log(err);
+					});
 			})
 			.catch((err) => {
 				console.log(err);
 			});
+	};
+
+	openModal = () => {
+		this.props.setOpen(true);
 	};
 
 	render() {
@@ -39,7 +50,10 @@ class Todo extends Component {
 						onClick={this.completeTodo}>
 						Done
 					</button>
-					<button id={this.props.id} title={this.props.title}>
+					<button
+						id={this.props.id}
+						title={this.props.title}
+						onClick={this.openModal}>
 						Edit
 					</button>
 				</div>

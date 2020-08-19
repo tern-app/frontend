@@ -10,10 +10,15 @@ class App extends Component {
 	constructor() {
 		super();
 		this.state = {
+			open: false,
 			todos: [],
 			display: 'not completed',
 		};
 	}
+
+	setOpen = (value) => {
+		this.setState({ open: value });
+	};
 
 	setTodos = (todos) => {
 		this.setState({ todos: todos });
@@ -44,13 +49,20 @@ class App extends Component {
 				<main>
 					<SearchBar />
 					<Create setTodos={this.setTodos} />
+					<Edit
+						setTodos={this.setTodos}
+						setOpen={this.setOpen}
+						open={this.state.open}
+					/>
 					<TodoList
 						todos={this.state.todos}
 						setTodos={this.setTodos}
 						setDisplay={this.setDisplay}
 						display={this.state.display}
+						setOpen={this.setOpen}
+						open={this.state.open}
 					/>
-					<Route path='/edit' component={Edit} />
+					{/* <Route path='/edit' component={Edit} /> */}
 				</main>
 			</div>
 		);
