@@ -48,8 +48,8 @@ class Todo extends Component {
 			<div>
 				<div>
 					<h1>{this.props.title}</h1>
-					<p>{this.props.url}</p>
-					<p>{this.props.id}</p>
+					<p>{this.props.body}</p>
+					<p>{this.props.dueDate}</p>
 				</div>
 				<div>
 					<button
