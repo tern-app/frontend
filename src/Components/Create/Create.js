@@ -27,15 +27,16 @@ class Create extends Component {
 
 	getCurrentTime = () => {
 		let today = new Date();
-		let date =
-			today.getFullYear() +
-			'-' +
-			(today.getMonth() + 1) +
-			'-' +
-			today.getDate();
-		let time =
-			today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
-		return date + ' ' + time;
+		// let date =
+		// 	today.getFullYear() +
+		// 	'-' +
+		// 	(today.getMonth() + 1) +
+		// 	'-' +
+		// 	today.getDate();
+		// let time =
+		// 	today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+		// return date + ' ' + time;
+		return today;
 	};
 
 	handleSubmit = (event) => {
@@ -65,6 +66,7 @@ class Create extends Component {
 				fetch(url)
 					.then((response) => response.json())
 					.then((response) => {
+						response.sort((a, b) => (a.createdDate > b.createdDate ? 1 : -1));
 						this.props.setTodos(response);
 					})
 					.catch((err) => {

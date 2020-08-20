@@ -7,6 +7,8 @@ class TodoList extends Component {
 		fetch(url)
 			.then((response) => response.json())
 			.then((response) => {
+				response.sort((a, b) => (a.createdDate > b.createdDate ? 1 : -1));
+				console.log(response);
 				this.props.setTodos(response);
 			})
 			.catch((err) => {

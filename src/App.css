@@ -16,11 +16,24 @@ nav {
 	align-content: center;
 	background-color: aqua;
 	width: 100vw;
+	height: 15vh;
+	margin-bottom: 30px;
+}
+
+ul {
+	margin: 20px auto;
+	font-size: 25px;
+	padding: 0;
 }
 
 li {
-	align-items: center;
 	display: inline;
+	cursor: pointer;
+	margin: -50px 50px 25px 50px;
+}
+
+li:hover {
+	font-style: italic;
 }
 
 .todo {
@@ -31,7 +44,7 @@ li {
 	display: grid;
 	grid-template-columns: 3fr 1fr;
 	align-items: center;
-	width: 500px;
+	width: 100vw;
 }
 
 .grid-container {
@@ -72,6 +85,7 @@ button,
 	text-align: center;
 	transition: all 0.15s;
 	width: 114px;
+	cursor: pointer;
 }
 
 button:hover,
@@ -91,5 +105,11 @@ button:active,
 	.submitButton {
 		display: block;
 		margin: 0.4em auto;
+	}
+}
+
+@media (min-width: 760px) {
+	.todo {
+		width: 500px;
 	}
 }
