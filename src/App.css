@@ -22,49 +22,18 @@ nav {
 	display: grid;
 	height: 100%;
 	align-items: center;
-	/* margin-left: 25%; */
-	/* grid-template: 1fr 1fr 1fr 1fr / 1fr 1fr 1fr; */
-	/* grid-template: 1fr / 1fr; */
-	grid-row-gap: 10px;
-}
 
-button {
-	display: block;
-	margin: 15px;
+	grid-row-gap: 10px;
 }
 
 .createButton {
 	margin: 0 auto;
 }
 
-/* button {
-	box-shadow: 3px 4px 0px 0px #210229;
-	background: linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
-	background-color: #ededed;
-	border-radius: 15px;
-	border: 1px solid #d6bcd6;
-	display: inline-block;
-	cursor: pointer;
-	color: #210229;
-	font-family: Arial;
-	font-size: 17px;
-	padding: 7px 25px;
-	text-decoration: none;
-	text-shadow: 0px 1px 0px #e1e2ed;
-}
-button:hover {
-	background: linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
-	background-color: #bab1ba;
-}
-button:active {
-	position: relative;
-	top: 1px;
-} */
-
 button,
 .submitButton {
 	display: inline-block;
-	padding: 0.5em 3em;
+	padding: 0.5em;
 	border: 0.16em solid #210229;
 	margin: 0 0.3em 0.3em 0;
 	box-sizing: border-box;
