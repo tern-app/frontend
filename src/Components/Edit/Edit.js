@@ -1,21 +1,6 @@
 import React, { Component } from 'react';
 
 class Edit extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			open: false,
-			newTodo: {},
-			title: '',
-			body: '',
-			createdDate: '',
-			priority: '',
-			completed: false,
-			completedDate: '',
-			dueDate: '',
-		};
-	}
-
 	closeModal = (event) => {
 		this.props.setOpen(false);
 	};
@@ -41,11 +26,6 @@ class Edit extends Component {
 		const url = `https://stark-depths-63601.herokuapp.com/tasks/${newTodo.id}`;
 		fetch(url, {
 			method: 'DELETE',
-			// headers: {
-			// 	'content-type': 'application/json',
-			// 	accept: 'application/json',
-			// },
-			// body: JSON.stringify(newTodo),
 		})
 			.then((response) => response.json())
 			.then((response) => {
@@ -58,12 +38,10 @@ class Edit extends Component {
 					.catch((err) => {
 						console.log(err);
 					});
-				// this.props.setTodos(response);
 			})
 			.catch((err) => {
 				console.log(err);
 			});
-		// const url = `https://stark-depths-63601.herokuapp.com/tasks/`;
 		this.props.setOpen({ open: false });
 	};
 
@@ -92,12 +70,10 @@ class Edit extends Component {
 					.catch((err) => {
 						console.log(err);
 					});
-				// this.props.setTodos(response);
 			})
 			.catch((err) => {
 				console.log(err);
 			});
-		// const url = `https://stark-depths-63601.herokuapp.com/tasks/`;
 		this.props.setOpen({ open: false });
 	};
 
@@ -141,6 +117,7 @@ class Edit extends Component {
 									type='text'
 									name='body'
 									id='body'
+									value={this.props.editTodo.body}
 									onChange={this.handleInputChange}
 								/>
 								<label>Due Date:</label>
@@ -148,6 +125,7 @@ class Edit extends Component {
 									type='datetime-local'
 									name='dueDate'
 									id='dueDate'
+									value={this.props.editTodo.dueDate}
 									onChange={this.handleInputChange}
 								/>
 								<label>Priority:</label>
@@ -157,9 +135,10 @@ class Edit extends Component {
 									max='5'
 									name='priority'
 									id='priority'
+									value={this.props.editTodo.priority}
 									onChange={this.handleInputChange}
 								/>
-								<input type='submit' value='submit' />
+								<input type='submit' className='submitButton' value='submit' />
 								<button
 									// type='submit'
 									// value='delete'

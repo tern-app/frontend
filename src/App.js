@@ -41,7 +41,6 @@ class App extends Component {
 	};
 
 	render() {
-		console.log(this.state.editTodo);
 		return (
 			<div>
 				<nav>
@@ -50,7 +49,7 @@ class App extends Component {
 						<li onClick={this.changeDisplayValue}>Completed</li>
 					</ul>
 				</nav>
-				<main>
+				<main className='grid-container'>
 					<SearchBar />
 					<Create setTodos={this.setTodos} />
 
@@ -71,7 +70,6 @@ class App extends Component {
 						setOpen={this.setOpen}
 						open={this.state.open}
 					/>
-					{/* <Route path='/edit' component={Edit} /> */}
 				</main>
 			</div>
 		);

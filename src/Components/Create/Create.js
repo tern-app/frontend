@@ -70,12 +70,10 @@ class Create extends Component {
 					.catch((err) => {
 						console.log(err);
 					});
-				// this.props.setTodos(response);
 			})
 			.catch((err) => {
 				console.log(err);
 			});
-		// const url = `https://stark-depths-63601.herokuapp.com/tasks/`;
 
 		this.setState({ open: false });
 	};
@@ -87,7 +85,10 @@ class Create extends Component {
 	render() {
 		return (
 			<div>
-				<button id='openModal' onClick={this.openModal}>
+				<button
+					id='openModal'
+					className='createButton'
+					onClick={this.openModal}>
 					+
 				</button>
 				{this.state.open === true && (

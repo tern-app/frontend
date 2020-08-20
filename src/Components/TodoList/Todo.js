@@ -45,7 +45,7 @@ class Todo extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className='todo'>
 				<div>
 					<h1>{this.props.title}</h1>
 					<p>{this.props.body}</p>
