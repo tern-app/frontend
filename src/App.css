@@ -2,9 +2,25 @@ body {
 	text-align: center;
 }
 
+/* .masterDiv nav {
+	padding: 18px var(--padding) 15px var(--padding);
+	display: flex;
+	align-content: center;
+	justify-content: space-between;
+	background-color: var(--mainBgColor);
+} */
+
 nav {
+	display: flex;
+	justify-content: space-between;
+	align-content: center;
 	background-color: aqua;
 	width: 100vw;
+}
+
+li {
+	align-items: center;
+	display: inline;
 }
 
 .todo {

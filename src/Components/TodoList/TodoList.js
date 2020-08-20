@@ -18,6 +18,10 @@ class TodoList extends Component {
 		return (
 			<div>
 				{this.props.todos.map((todo) => {
+					let backgroundColor;
+					if (this.props.priority === 5) {
+						backgroundColor = 'red';
+					}
 					if (this.props.display === 'completed') {
 						if (todo.completed !== false) {
 							return (
@@ -31,6 +35,7 @@ class TodoList extends Component {
 									body={todo.body}
 									id={todo._id}
 									completed={todo.completed}
+									backgroundColor={this.backgroundColor}
 								/>
 							);
 						}
