@@ -17,8 +17,10 @@ class Todo extends Component {
 			.then((response) => response.json())
 			.then((response) => {
 				fetch(`https://stark-depths-63601.herokuapp.com/tasks/`)
+
 					.then((response) => response.json())
 					.then((response) => {
+						response.sort((a, b) => (new Date(b.createdDate) - new Date(a.createdDate)));
 						this.props.setTodos(response);
 					})
 					.catch((err) => {

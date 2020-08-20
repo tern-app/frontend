@@ -8,15 +8,17 @@ class Edit extends Component {
 
 	getCurrentTime = () => {
 		let today = new Date();
-		let date =
-			today.getFullYear() +
-			'-' +
-			(today.getMonth() + 1) +
-			'-' +
-			today.getDate();
-		let time =
-			today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
-		return date + ' ' + time;
+		// let date =
+		// 	today.getFullYear() +
+		// 	'-' +
+		// 	(today.getMonth() + 1) +
+		// 	'-' +
+		// 	today.getDate();
+		// let time =
+		// 	today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+		// return date + ' ' + time;
+		return today;
+
 	};
 
 	deleteTodo = (event) => {
@@ -66,6 +68,7 @@ class Edit extends Component {
 				fetch(`https://stark-depths-63601.herokuapp.com/tasks/`)
 					.then((response) => response.json())
 					.then((response) => {
+						response.sort((a, b) => (new Date(b.createdDate) - new Date(a.createdDate)));
 						this.props.setTodos(response);
 					})
 					.catch((err) => {

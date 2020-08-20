@@ -27,6 +27,7 @@ class Create extends Component {
 
 	getCurrentTime = () => {
 		let today = new Date();
+	      console.log(today);
 		// let date =
 		// 	today.getFullYear() +
 		// 	'-' +
@@ -66,7 +67,7 @@ class Create extends Component {
 				fetch(url)
 					.then((response) => response.json())
 					.then((response) => {
-						response.sort((a, b) => (a.createdDate > b.createdDate ? 1 : -1));
+						response.sort((a, b) => (new Date(b.createdDate) - new Date(a.createdDate)));
 						this.props.setTodos(response);
 					})
 					.catch((err) => {
