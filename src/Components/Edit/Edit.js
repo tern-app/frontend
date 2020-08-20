@@ -98,10 +98,14 @@ class Edit extends Component {
 				{this.props.open === true && (
 					<div id='modal' display='block'>
 						<div id='modal-textbox'>
-							<a id='close' href='#' onClick={this.closeModal}>
-								Close
+							<a
+								id='close'
+								href='#'
+								className='closeButton'
+								onClick={this.closeModal}>
+								x
 							</a>
-							<h1>Update to-do</h1>
+							<h1 className='modalH1'>Update to-do</h1>
 							<form onSubmit={this.handleSubmit}>
 								<div className='editInputs'>
 									<div>
