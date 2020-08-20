@@ -13,6 +13,8 @@ class App extends Component {
 			todos: [],
 			display: 'not completed',
 			editTodo: {},
+			todoClass: 'highlighted',
+			completedClass: '',
 		};
 	}
 
@@ -34,10 +36,14 @@ class App extends Component {
 
 	changeDisplayValue = () => {
 		this.setState({ display: 'completed' });
+		this.setState({ todoClass: '' });
+		this.setState({ completedClass: 'highlighted' });
 	};
 
 	changeTaskValue = () => {
 		this.setState({ display: 'not completed' });
+		this.setState({ todoClass: 'highlighted' });
+		this.setState({ completedClass: '' });
 	};
 
 	render() {
@@ -45,8 +51,14 @@ class App extends Component {
 			<div>
 				<nav>
 					<ul>
-						<li onClick={this.changeTaskValue}>To-do</li>
-						<li onClick={this.changeDisplayValue}>Completed</li>
+						<li className={this.state.todoClass} onClick={this.changeTaskValue}>
+							To-do
+						</li>
+						<li
+							className={this.state.completedClass}
+							onClick={this.changeDisplayValue}>
+							Completed
+						</li>
 					</ul>
 				</nav>
 				<main className='grid-container'>

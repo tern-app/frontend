@@ -55,8 +55,9 @@ class Todo extends Component {
 					<button
 						id={this.props.id}
 						title={this.props.title}
+						style={{ display: this.props.displayType }}
 						onClick={this.completeTodo}>
-						Done
+						Complete
 					</button>
 					<button
 						id={this.props.id}

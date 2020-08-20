@@ -1,5 +1,13 @@
 body {
 	text-align: center;
+	background: rgb(238, 174, 202);
+	background: radial-gradient(
+		circle,
+		rgba(238, 174, 202, 1) 0%,
+		rgba(148, 187, 233, 1) 100%
+	);
+	font-family: 'Quicksand', sans-serif;
+	/* font-family: 'Alata', sans-serif; */
 }
 
 /* .masterDiv nav {
@@ -10,14 +18,25 @@ body {
 	background-color: var(--mainBgColor);
 } */
 
+.highlighted {
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+
+	background-color: rgba(148, 187, 233, 1);
+	padding: 25px;
+}
+
 nav {
+	color: white;
 	display: flex;
 	justify-content: space-between;
 	align-content: center;
-	background-color: aqua;
+	background: navy;
 	width: 100vw;
-	height: 15vh;
+	height: 75px;
 	margin-bottom: 30px;
+	font-weight: 700;
+	/* font-family: 'Abril Fatface', cursive; */
 }
 
 ul {
@@ -38,13 +57,15 @@ li:hover {
 
 .todo {
 	padding: 10px;
-	border: 2px solid #210229;
+	/* border: 2px solid #210229; */
 	border-radius: 30px;
 	margin: 20px auto;
 	display: grid;
 	grid-template-columns: 3fr 1fr;
 	align-items: center;
 	width: 100vw;
+	background-color: white;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .grid-container {
@@ -72,6 +93,8 @@ li:hover {
 
 button,
 .submitButton {
+	border-radius: 5px;
+	font-family: 'Quicksand', sans-serif;
 	display: inline-block;
 	padding: 0.5em;
 	border: 0.16em solid #210229;
@@ -79,7 +102,6 @@ button,
 	box-sizing: border-box;
 	text-decoration: none;
 	text-transform: uppercase;
-	font-family: 'Roboto', sans-serif;
 	font-weight: 400;
 	color: #210229;
 	text-align: center;

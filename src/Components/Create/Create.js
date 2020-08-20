@@ -91,7 +91,7 @@ class Create extends Component {
 					id='openModal'
 					className='createButton'
 					onClick={this.openModal}>
-					+
+					NEW TASK
 				</button>
 				{this.state.open === true && (
 					<div id='modal' display='block'>
