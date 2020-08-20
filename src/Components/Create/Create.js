@@ -27,15 +27,16 @@ class Create extends Component {
 
 	getCurrentTime = () => {
 		let today = new Date();
-		let date =
-			today.getFullYear() +
-			'-' +
-			(today.getMonth() + 1) +
-			'-' +
-			today.getDate();
-		let time =
-			today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
-		return date + ' ' + time;
+		// let date =
+		// 	today.getFullYear() +
+		// 	'-' +
+		// 	(today.getMonth() + 1) +
+		// 	'-' +
+		// 	today.getDate();
+		// let time =
+		// 	today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+		// return date + ' ' + time;
+		return today;
 	};
 
 	handleSubmit = (event) => {
@@ -65,17 +66,16 @@ class Create extends Component {
 				fetch(url)
 					.then((response) => response.json())
 					.then((response) => {
+						response.sort((a, b) => (a.createdDate > b.createdDate ? 1 : -1));
 						this.props.setTodos(response);
 					})
 					.catch((err) => {
 						console.log(err);
 					});
-				// this.props.setTodos(response);
 			})
 			.catch((err) => {
 				console.log(err);
 			});
-		// const url = `https://stark-depths-63601.herokuapp.com/tasks/`;
 
 		this.setState({ open: false });
 	};
@@ -87,45 +87,65 @@ class Create extends Component {
 	render() {
 		return (
 			<div>
-				<button id='openModal' onClick={this.openModal}>
-					+
+				<button
+					id='openModal'
+					className='createButton'
+					onClick={this.openModal}>
+					NEW TASK
 				</button>
 				{this.state.open === true && (
 					<div id='modal' display='block'>
 						<div id='modal-textbox'>
-							<a id='close' href='#' onClick={this.closeModal}>
-								Close
+							<a
+								id='close'
+								className='closeButton'
+								href='#'
+								onClick={this.closeModal}>
+								x
 							</a>
-							<h1>Create a new to-do</h1>
+							<h1 className='modalH1'>Create a new to-do</h1>
 							<form onSubmit={this.handleSubmit}>
-								<label>Title:</label>
-								<input
-									required
-									type='text'
-									name='title'
-									id='title'
-									onChange={this.handleInputChange}></input>
-								<label>Details:</label>
-								<input
-									type='text'
-									name='body'
-									id='body'
-									onChange={this.handleInputChange}></input>
-								<label>Due Date:</label>
-								<input
-									type='datetime-local'
-									name='dueDate'
-									id='dueDate'
-									onChange={this.handleInputChange}></input>
-								<label>Priority:</label>
-								<input
-									type='number'
-									min='1'
-									max='5'
-									name='priority'
-									id='priority'
-									onChange={this.handleInputChange}></input>
-								<input type='submit' />
+								<div className='editInputs'>
+									<div>
+										<label>Title:</label>
+										<input
+											required
+											className='inputField'
+											type='text'
+											name='title'
+											id='title'
+											onChange={this.handleInputChange}></input>
+									</div>
+									<div>
+										<label>Details:</label>
+										<input
+											className='inputField'
+											type='text'
+											name='body'
+											id='body'
+											onChange={this.handleInputChange}></input>
+									</div>
+									<div>
+										<label>Due Date:</label>
+										<input
+											className='inputField'
+											type='datetime-local'
+											name='dueDate'
+											id='dueDate'
+											onChange={this.handleInputChange}></input>
+									</div>
+									<div>
+										<label>Priority:</label>
+										<input
+											type='number'
+											min='1'
+											max='5'
+											name='priority'
+											id='priority'
+											onChange={this.handleInputChange}></input>
+									</div>
+								</div>
+								<input type='submit' className='submitButton' />
 							</form>
 						</div>
 					</div>

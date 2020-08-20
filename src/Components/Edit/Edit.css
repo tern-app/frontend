@@ -1,0 +1,23 @@
+.edit-grid-container {
+	display: grid;
+}
+
+label {
+	text-align: left;
+}
+
+.editInputs {
+	margin-left: 60px;
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	grid-gap: 10px;
+}
+
+.inputField {
+	float: right;
+	margin-right: 100px;
+	width: 300px;
+	/* margin: 10px 100px 0 0; */
+}

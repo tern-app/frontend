@@ -45,18 +45,19 @@ class Todo extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className='todo'>
 				<div>
 					<h1>{this.props.title}</h1>
-					<p>{this.props.url}</p>
-					<p>{this.props.id}</p>
+					<p>{this.props.body}</p>
+					<p>{this.props.dueDate}</p>
 				</div>
 				<div>
 					<button
 						id={this.props.id}
 						title={this.props.title}
+						style={{ display: this.props.displayType }}
 						onClick={this.completeTodo}>
-						Done
+						Complete
 					</button>
 					<button
 						id={this.props.id}

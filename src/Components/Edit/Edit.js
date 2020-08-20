@@ -1,21 +1,7 @@
 import React, { Component } from 'react';
+import './Edit.css';
 
 class Edit extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			open: false,
-			newTodo: {},
-			title: '',
-			body: '',
-			createdDate: '',
-			priority: '',
-			completed: false,
-			completedDate: '',
-			dueDate: '',
-		};
-	}
-
 	closeModal = (event) => {
 		this.props.setOpen(false);
 	};
@@ -41,11 +27,6 @@ class Edit extends Component {
 		const url = `https://stark-depths-63601.herokuapp.com/tasks/${newTodo.id}`;
 		fetch(url, {
 			method: 'DELETE',
-			// headers: {
-			// 	'content-type': 'application/json',
-			// 	accept: 'application/json',
-			// },
-			// body: JSON.stringify(newTodo),
 		})
 			.then((response) => response.json())
 			.then((response) => {
@@ -58,12 +39,10 @@ class Edit extends Component {
 					.catch((err) => {
 						console.log(err);
 					});
-				// this.props.setTodos(response);
 			})
 			.catch((err) => {
 				console.log(err);
 			});
-		// const url = `https://stark-depths-63601.herokuapp.com/tasks/`;
 		this.props.setOpen({ open: false });
 	};
 
@@ -92,12 +71,10 @@ class Edit extends Component {
 					.catch((err) => {
 						console.log(err);
 					});
-				// this.props.setTodos(response);
 			})
 			.catch((err) => {
 				console.log(err);
 			});
-		// const url = `https://stark-depths-63601.herokuapp.com/tasks/`;
 		this.props.setOpen({ open: false });
 	};
 
@@ -117,55 +94,83 @@ class Edit extends Component {
 		console.log(this.props.editTodo);
 
 		return (
-			<div>
+			<div className='edit-grid-container'>
 				{this.props.open === true && (
 					<div id='modal' display='block'>
 						<div id='modal-textbox'>
-							<a id='close' href='#' onClick={this.closeModal}>
-								Close
+							<a
+								id='close'
+								href='#'
+								className='closeButton'
+								onClick={this.closeModal}>
+								x
 							</a>
-							<h1>Update to-do</h1>
+							<h1 className='modalH1'>Update to-do</h1>
 							<form onSubmit={this.handleSubmit}>
-								<label>Title:</label>
-								<input
-									required
-									type='text'
-									name='title'
-									id='title'
-									value={this.props.editTodo.title}
-									// defaultValue={this.props.editTodo.title}
-									onChange={this.handleInputChange}
-								/>
-								<label>Details:</label>
-								<input
-									type='text'
-									name='body'
-									id='body'
-									onChange={this.handleInputChange}
-								/>
-								<label>Due Date:</label>
-								<input
-									type='datetime-local'
-									name='dueDate'
-									id='dueDate'
-									onChange={this.handleInputChange}
-								/>
-								<label>Priority:</label>
-								<input
-									type='number'
-									min='1'
-									max='5'
-									name='priority'
-									id='priority'
-									onChange={this.handleInputChange}
-								/>
-								<input type='submit' value='submit' />
-								<button
-									// type='submit'
-									// value='delete'
-									onClick={this.deleteTodo}>
-									Delete
-								</button>
+								<div className='editInputs'>
+									<div>
+										<label>Title:</label>
+										<input
+											className='inputField'
+											required
+											type='text'
+											name='title'
+											id='title'
+											value={this.props.editTodo.title}
+											// defaultValue={this.props.editTodo.title}
+											onChange={this.handleInputChange}
+										/>
+									</div>
+									<div>
+										<label>Details:</label>
+										<input
+											className='inputField'
+											type='text'
+											name='body'
+											id='body'
+											value={this.props.editTodo.body}
+											onChange={this.handleInputChange}
+										/>
+									</div>
+									<div>
+										<label>Due Date:</label>
+										<input
+											className='inputField'
+											type='datetime-local'
+											name='dueDate'
+											id='dueDate'
+											value={this.props.editTodo.dueDate}
+											onChange={this.handleInputChange}
+										/>
+									</div>
+									<div>
+										<label>Priority:</label>
+										<input
+											type='number'
+											min='1'
+											max='5'
+											name='priority'
+											id='priority'
+											value={this.props.editTodo.priority}
+											onChange={this.handleInputChange}
+										/>
+									</div>
+								</div>
+								<div>
+									<input
+										type='submit'
+										className='submitButton'
+										value='submit'
+									/>
+								</div>
+								<div>
+									<button
+										// type='submit'
+										// value='delete'
+										onClick={this.deleteTodo}>
+										Delete
+									</button>
+								</div>
 							</form>
 						</div>
 					</div>

@@ -1,68 +1,100 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Tern Frontend
 
-## Available Scripts
+**Team:**
 
-In the project directory, you can run:
+Mahlet Bogale<br>
+Pamela Gilmour<br>
+Xavier Luján<br>
+Tabitha Perry<br>
+_Squad Leader:_ Hou Chia
 
-### `npm start`
+<br>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Project Description
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Tern is a to-do list app. As a user you can create to-do list items, view and organize them by priority, mark the tasks as complete, as well as editing, and deleting the items. The user can view a list of your completed to-do items.
 
-### `npm test`
+[This is the Backend repo+planning](https://github.com/tern-app/backend)<br>
+[This is the Frontend repo+planning](https://github.com/tern-app/frontend)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br>
+<br>
 
-### `npm run build`
+## User Stories
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### MVP User Stories
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- As a user, I would like to add an item to my to do list
+- As a user, I would like to add a body, priority, location and due date
+- As a user, I would like to be able to mark a task as completed
+- As a user, I would like to be able to see my completed tasks
+- As a user, I would like to delete a task
+- As a user, I want to edit my tasks
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Stretch User Stories
 
-### `npm run eject`
+- As a user, I would like to be able to sort my to-dos by priority
+- As a user, I want to sort by due date, created date, location, etc
+- As a user, I want to be able to log in (have authentication)
+- As a user I want to be able to search my to-do/completed lists
+- As a user, I want to be able to star my to do
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<br>
+<br>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Wireframes
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<img src="https://raw.githubusercontent.com/tern-app/planning/master/images/wireframe-list-view-main.png" alt="Home view" width="400"/>
+<img src="https://raw.githubusercontent.com/tern-app/planning/master/images/wireframe-list-view.png" alt="Home view" width="400"/>
+<img src="https://raw.githubusercontent.com/tern-app/planning/master/images/wireframe-modal-view.png" alt="Home view" width="400"/>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<br>
+<br>
 
-## Learn More
+## Component Hierarchy
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<img src="https://raw.githubusercontent.com/tern-app/planning/master/images/tern-component-hierarchy.png" alt="Home view" width="400"/>
+<br>
+<br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+| **Component** | **Description**                                 | **State/Props** |
+| ------------- | ----------------------------------------------- | --------------- |
+| App           | This will handle React and call the components  | State           |
+| SearchBar     | This will be used for searching through to-do's | Props           |
+| TodoList      | This will render the list of to-do's            | Props           |
+| Todo          | This will render the individual to-do           | Props           |
+| Edit          | This will edit the to-do's properties           | Props           |
+| Create        | This will create a new to-do                    | Props           |
 
-### Code Splitting
+<br>
+<br>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## API
 
-### Analyzing the Bundle Size
+We are building our own API with MongoDB, Mongoose and Express. The backend is deployed using AtlasDB and [Heroku](https://stark-depths-63601.herokuapp.com/tasks/). In order to maintain data consistency we developed a schema. This allows us to always save our data in the same format. Here's an example of how the data is returned:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+    {
+    	"title": "First to-do",
+    	"body": "This is the body of the to do",
+    	"createdDate": "2020-08-18",
+    	"priority": 1,
+    	"completed": false,
+    	"completedDate": "2020-08-18",
+    	"dueDate": "due date string"
+    },
+    {
+    	"title": "First to-do",
+    	"body": "This is the body of the to do",
+    	"priority": 1,
+    	"createdDate": "2020-08-18",
+    	"dueDate": "due date string",
+    	"completed": false,
+    	"completedDate": "2020-08-18"
+    }
 
-### Making a Progressive Web App
+<br>
+<br>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## Request Response Cycle Diagram
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+<img src="https://raw.githubusercontent.com/tern-app/planning/master/images/tern-request-response-cycle-diagram.png" alt="Home view" width="400" />

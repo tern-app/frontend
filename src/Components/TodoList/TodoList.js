@@ -7,6 +7,8 @@ class TodoList extends Component {
 		fetch(url)
 			.then((response) => response.json())
 			.then((response) => {
+				response.sort((a, b) => (a.createdDate > b.createdDate ? 1 : -1));
+				console.log(response);
 				this.props.setTodos(response);
 			})
 			.catch((err) => {
@@ -18,10 +20,15 @@ class TodoList extends Component {
 		return (
 			<div>
 				{this.props.todos.map((todo) => {
+					// let backgroundColor;
+					// if (this.props.priority === 5) {
+					// 	backgroundColor = 'red';
+					// }
 					if (this.props.display === 'completed') {
 						if (todo.completed !== false) {
 							return (
 								<Todo
+									setEditTodo={this.props.setEditTodo}
 									setOpen={this.props.setOpen}
 									open={this.props.open}
 									setTodos={this.props.setTodos}
@@ -30,6 +37,8 @@ class TodoList extends Component {
 									body={todo.body}
 									id={todo._id}
 									completed={todo.completed}
+									backgroundColor={this.backgroundColor}
+									displayType='none'
 								/>
 							);
 						}
