@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Todo.css';
 
 class Todo extends Component {
 	completeTodo = (event) => {
@@ -17,10 +18,11 @@ class Todo extends Component {
 			.then((response) => response.json())
 			.then((response) => {
 				fetch(`https://stark-depths-63601.herokuapp.com/tasks/`)
-
 					.then((response) => response.json())
 					.then((response) => {
-						response.sort((a, b) => (new Date(b.createdDate) - new Date(a.createdDate)));
+						response.sort(
+							(a, b) => new Date(b.createdDate) - new Date(a.createdDate)
+						);
 						this.props.setTodos(response);
 					})
 					.catch((err) => {
@@ -42,12 +44,11 @@ class Todo extends Component {
 			id: this.props.id,
 		};
 		this.props.setEditTodo(todo);
-		// console.log(todo);
 	};
 
 	render() {
 		return (
-			<div className='todo'>
+			<div className={`todo priority-${this.props.priority}`}>
 				<div>
 					<h1>{this.props.title}</h1>
 					<p>{this.props.body}</p>
@@ -64,9 +65,6 @@ class Todo extends Component {
 					<button
 						id={this.props.id}
 						title={this.props.title}
-						// body={this.props.body}
-						// dueDate={this.props.dueDate}
-						// priority={this.props.priority}
 						onClick={this.openModal}>
 						Edit
 					</button>

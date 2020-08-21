@@ -81,6 +81,7 @@ class App extends Component {
 						display={this.state.display}
 						setOpen={this.setOpen}
 						open={this.state.open}
+						// priority={this.state.priorityClass}
 					/>
 				</main>
 			</div>
