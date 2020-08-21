@@ -12,7 +12,9 @@ _Squad Leader:_ Hou Chia
 
 ## Project Description
 
-Tern is a to-do list app. As a user you can create to-do list items, view and organize them by priority, mark the tasks as complete, as well as editing, and deleting the items. The user can view a list of your completed to-do items.
+Our team decided to create a to-do app. We wanted to have a place where we could add to-do items and be able to edit them and mark them as complete. We then though about adding a number value so we could prioritize items and give them a visual reference of the priority. Finally, we added a to-do view and a completed view, in order to only see relevant to-do's.
+
+We developed the app using MongoDB, Mongoose, Express and React, and are able to perform full CRUD operations to the database in order to add, edit and delete to-do items.
 
 [This is the Backend repo+planning](https://github.com/tern-app/backend)<br>
 [This is the Frontend repo+planning](https://github.com/tern-app/frontend)
