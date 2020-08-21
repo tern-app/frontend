@@ -10,7 +10,6 @@ class TodoList extends Component {
 				response.sort(
 					(a, b) => new Date(b.createdDate) - new Date(a.createdDate)
 				);
-				console.log(response);
 				this.props.setTodos(response);
 			})
 			.catch((err) => {
@@ -22,10 +21,6 @@ class TodoList extends Component {
 		return (
 			<div>
 				{this.props.todos.map((todo) => {
-					// let backgroundColor;
-					// if (this.props.priority === 5) {
-					// 	backgroundColor = 'red';
-					// }
 					if (this.props.display === 'completed') {
 						if (todo.completed !== false) {
 							return (

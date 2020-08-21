@@ -10,7 +10,7 @@ class Create extends Component {
 			title: '',
 			body: '',
 			createdDate: '',
-			priority: '1',
+			priority: '',
 			completed: false,
 			completedDate: '',
 			dueDate: '',
@@ -27,16 +27,6 @@ class Create extends Component {
 
 	getCurrentTime = () => {
 		let today = new Date();
-		console.log(today);
-		// let date =
-		// 	today.getFullYear() +
-		// 	'-' +
-		// 	(today.getMonth() + 1) +
-		// 	'-' +
-		// 	today.getDate();
-		// let time =
-		// 	today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
-		// return date + ' ' + time;
 		return today;
 	};
 
@@ -141,7 +131,6 @@ class Create extends Component {
 										<label>Priority:</label>
 										<input
 											required
-											value='1'
 											type='number'
 											min='1'
 											max='5'
