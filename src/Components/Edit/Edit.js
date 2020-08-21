@@ -8,30 +8,18 @@ class Edit extends Component {
 
 	getCurrentTime = () => {
 		let today = new Date();
-		// let date =
-		// 	today.getFullYear() +
-		// 	'-' +
-		// 	(today.getMonth() + 1) +
-		// 	'-' +
-		// 	today.getDate();
-		// let time =
-		// 	today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
-		// return date + ' ' + time;
 		return today;
 	};
 
 	deleteTodo = (event) => {
 		event.preventDefault();
 		const newTodo = this.props.editTodo;
-
-		console.log(newTodo);
 		const url = `https://stark-depths-63601.herokuapp.com/tasks/${newTodo.id}`;
 		fetch(url, {
 			method: 'DELETE',
 		})
 			.then((response) => response.json())
 			.then((response) => {
-				console.log(response);
 				fetch(`https://stark-depths-63601.herokuapp.com/tasks/`)
 					.then((response) => response.json())
 					.then((response) => {
@@ -53,8 +41,6 @@ class Edit extends Component {
 	handleSubmit = (event) => {
 		event.preventDefault();
 		const newTodo = this.props.editTodo;
-
-		console.log(newTodo);
 		const url = `https://stark-depths-63601.herokuapp.com/tasks/${newTodo.id}`;
 		fetch(url, {
 			method: 'PUT',
@@ -66,7 +52,6 @@ class Edit extends Component {
 		})
 			.then((response) => response.json())
 			.then((response) => {
-				console.log(response);
 				fetch(`https://stark-depths-63601.herokuapp.com/tasks/`)
 					.then((response) => response.json())
 					.then((response) => {
@@ -98,8 +83,6 @@ class Edit extends Component {
 	};
 
 	render() {
-		console.log(this.props.editTodo);
-
 		return (
 			<div className='edit-grid-container'>
 				{this.props.open === true && (
@@ -124,7 +107,6 @@ class Edit extends Component {
 											name='title'
 											id='title'
 											value={this.props.editTodo.title}
-											// defaultValue={this.props.editTodo.title}
 											onChange={this.handleInputChange}
 										/>
 									</div>
@@ -171,12 +153,7 @@ class Edit extends Component {
 									/>
 								</div>
 								<div>
-									<button
-										// type='submit'
-										// value='delete'
-										onClick={this.deleteTodo}>
-										Delete
-									</button>
+									<button onClick={this.deleteTodo}>Delete</button>
 								</div>
 							</form>
 						</div>
