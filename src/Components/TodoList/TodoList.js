@@ -7,7 +7,9 @@ class TodoList extends Component {
 		fetch(url)
 			.then((response) => response.json())
 			.then((response) => {
-				response.sort((a, b) => (new Date(b.createdDate) - new Date(a.createdDate)));
+				response.sort(
+					(a, b) => new Date(b.createdDate) - new Date(a.createdDate)
+				);
 				console.log(response);
 				this.props.setTodos(response);
 			})
@@ -28,6 +30,7 @@ class TodoList extends Component {
 						if (todo.completed !== false) {
 							return (
 								<Todo
+									priority={todo.priority}
 									setEditTodo={this.props.setEditTodo}
 									setOpen={this.props.setOpen}
 									open={this.props.open}

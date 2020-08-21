@@ -10,7 +10,7 @@ class Create extends Component {
 			title: '',
 			body: '',
 			createdDate: '',
-			priority: '',
+			priority: '1',
 			completed: false,
 			completedDate: '',
 			dueDate: '',
@@ -27,7 +27,7 @@ class Create extends Component {
 
 	getCurrentTime = () => {
 		let today = new Date();
-	      console.log(today);
+		console.log(today);
 		// let date =
 		// 	today.getFullYear() +
 		// 	'-' +
@@ -67,7 +67,9 @@ class Create extends Component {
 				fetch(url)
 					.then((response) => response.json())
 					.then((response) => {
-						response.sort((a, b) => (new Date(b.createdDate) - new Date(a.createdDate)));
+						response.sort(
+							(a, b) => new Date(b.createdDate) - new Date(a.createdDate)
+						);
 						this.props.setTodos(response);
 					})
 					.catch((err) => {
@@ -138,6 +140,8 @@ class Create extends Component {
 									<div>
 										<label>Priority:</label>
 										<input
+											required
+											value='1'
 											type='number'
 											min='1'
 											max='5'
