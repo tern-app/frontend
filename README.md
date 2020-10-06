@@ -17,7 +17,8 @@ Our team decided to create a to-do app. We wanted to have a place where we could
 We developed the app using MongoDB, Mongoose, Express and React, and are able to perform full CRUD operations to the database in order to add, edit and delete to-do items.
 
 [This is the Backend repo+planning](https://github.com/tern-app/backend)<br>
-[This is the Frontend repo+planning](https://github.com/tern-app/frontend)
+[This is the Frontend repo+planning](https://github.com/tern-app/frontend)<br>
+[This is the Trello board for tracking the project](https://trello.com/b/KUDH8awY/seir622-project-3-tern)
 
 <br>
 <br>
